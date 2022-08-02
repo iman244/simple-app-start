@@ -1,16 +1,23 @@
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
+import { MongooseModule } from '@nestjs/mongoose';
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { HotelsModule } from './hotels/hotels.module';
+import { RoomsModule } from './rooms/rooms.module';
 
 @Module({
   imports: [
+    MongooseModule.forRoot(
+      'mongodb+srv://iman244:tn6GeLcHmxgQobRu@imanlab.djjqy6q.mongodb.net/graphql-booking-play',
+    ),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
+      autoSchemaFile: true,
     }),
+    HotelsModule,
+    RoomsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

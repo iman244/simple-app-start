@@ -1,5 +1,6 @@
 # compiled output
 /nest-backend/node_modules
+/nest-backend/.env
 
 # Logs
 logs
