@@ -1,13 +1,23 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Args, Parent, Query, ResolveField, Resolver } from '@nestjs/graphql';
+import { RoomsService } from 'src/rooms/rooms.service';
 import { Hotel } from './hotels.model';
 import { HotelsService } from './hotels.service';
 
-@Resolver(() => Hotel)
-export class HotelResolver {
-  constructor(private readonly HotelService: HotelsService) {}
+@Resolver((of) => Hotel)
+export class HotelsResolver {
+  constructor(
+    private HotelsService: HotelsService,
+    private RoomsService: RoomsService,
+  ) {}
 
-  @Query(() => Hotel, { name: 'hotel', nullable: true })
-  async getHotel(): Promise<Hotel> {
-    return this.HotelService.getHotel();
+  @Query((returns) => Hotel)
+  async hotel(@Args('id') id: string) {
+    return this.HotelsService.getHotel(id);
+  }
+
+  @ResolveField()
+  async rooms(@Parent() hotel: Hotel) {
+    const { id } = hotel;
+    return this.RoomsService.getAllRooms({ hotelId: id });
   }
 }

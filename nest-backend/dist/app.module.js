@@ -21,7 +21,7 @@ AppModule = __decorate([
             mongoose_1.MongooseModule.forRoot('mongodb+srv://iman244:tn6GeLcHmxgQobRu@imanlab.djjqy6q.mongodb.net/graphql-booking-play'),
             graphql_1.GraphQLModule.forRoot({
                 driver: apollo_1.ApolloDriver,
-                autoSchemaFile: true,
+                autoSchemaFile: 'schema.gql',
             }),
             hotels_module_1.HotelsModule,
             rooms_module_1.RoomsModule,

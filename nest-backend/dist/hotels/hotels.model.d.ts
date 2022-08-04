@@ -1,5 +1,6 @@
-export declare class hotel {
+import { Room } from 'src/rooms/rooms.model';
+export declare class Hotel {
     id: string;
     name: string;
-    roomsId: string[];
+    rooms: Room[];
 }

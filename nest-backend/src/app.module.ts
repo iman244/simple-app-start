@@ -12,7 +12,7 @@ import { RoomsModule } from './rooms/rooms.module';
     ),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: true,
+      autoSchemaFile: 'schema.gql',
     }),
     HotelsModule,
     RoomsModule,

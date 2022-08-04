@@ -9,25 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Hotel = void 0;
+exports.Room = void 0;
 const graphql_1 = require("@nestjs/graphql");
-const rooms_model_1 = require("../rooms/rooms.model");
-let Hotel = class Hotel {
+const hotels_model_1 = require("../hotels/hotels.model");
+let Room = class Room {
 };
 __decorate([
     (0, graphql_1.Field)((type) => graphql_1.ID),
     __metadata("design:type", String)
-], Hotel.prototype, "id", void 0);
+], Room.prototype, "id", void 0);
 __decorate([
-    (0, graphql_1.Field)(),
-    __metadata("design:type", String)
-], Hotel.prototype, "name", void 0);
+    (0, graphql_1.Field)((type) => graphql_1.Int),
+    __metadata("design:type", Number)
+], Room.prototype, "number", void 0);
 __decorate([
-    (0, graphql_1.Field)((type) => [rooms_model_1.Room]),
-    __metadata("design:type", Array)
-], Hotel.prototype, "rooms", void 0);
-Hotel = __decorate([
+    (0, graphql_1.Field)((type) => hotels_model_1.Hotel),
+    __metadata("design:type", hotels_model_1.Hotel)
+], Room.prototype, "hotelId", void 0);
+Room = __decorate([
     (0, graphql_1.ObjectType)()
-], Hotel);
-exports.Hotel = Hotel;
-//# sourceMappingURL=hotels.model.js.map
+], Room);
+exports.Room = Room;
+//# sourceMappingURL=rooms.model.js.map

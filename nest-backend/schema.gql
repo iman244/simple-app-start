@@ -1,0 +1,19 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Room {
+  id: ID!
+  number: Int!
+  hotelId: Hotel!
+}
+
+type Hotel {
+  id: ID!
+  name: String!
+  rooms: [Room!]!
+}
+
+type Query {
+  hotel(id: String!): Hotel!
+}

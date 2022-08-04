@@ -10,6 +10,8 @@ exports.HotelsModule = void 0;
 const common_1 = require("@nestjs/common");
 const mongoose_1 = require("@nestjs/mongoose");
 const rooms_schema_1 = require("../rooms/rooms.schema");
+const rooms_service_1 = require("../rooms/rooms.service");
+const hotels_resolver_1 = require("./hotels.resolver");
 const hotels_schema_1 = require("./hotels.schema");
 const hotels_service_1 = require("./hotels.service");
 let HotelsModule = class HotelsModule {
@@ -22,7 +24,7 @@ HotelsModule = __decorate([
                 { name: 'Room', schema: rooms_schema_1.RoomSchema },
             ]),
         ],
-        providers: [hotels_service_1.HotelsService],
+        providers: [hotels_service_1.HotelsService, hotels_resolver_1.HotelsResolver, rooms_service_1.RoomsService],
     })
 ], HotelsModule);
 exports.HotelsModule = HotelsModule;
